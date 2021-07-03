@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { ChainId } from '@sushiswap/sdk'
+import { ChainId } from '@snowge/swapsdk'
 import { ethers } from 'ethers'
 
 // Functions that need accrue to be called
@@ -80,15 +80,17 @@ export const BENTOBOX_ADDRESS: {
     [ChainId.BSC]: '0xF5BCE5077908a1b7370B9ae04AdC565EBd643966',
     [ChainId.BSC_TESTNET]: '',
     [ChainId.ARBITRUM]: '',
-    [ChainId.MOONBASE]: '',
+    [ChainId.ARBITRUM_TESTNET]: '',
+    [ChainId.MOONBEAM_TESTNET]: '',
     [ChainId.AVALANCHE]: '',
-    [ChainId.FUJI]: '',
+    [ChainId.AVALANCHE_TESTNET]: '',
     [ChainId.HECO]: '',
     [ChainId.HECO_TESTNET]: '',
     [ChainId.HARMONY]: '',
     [ChainId.HARMONY_TESTNET]: '',
     [ChainId.OKEX]: '',
-    [ChainId.OKEX_TESTNET]: ''
+    [ChainId.OKEX_TESTNET]: '',
+    [ChainId.CELO]: ''
 }
 
 export const KASHI_ADDRESS: {
@@ -107,15 +109,17 @@ export const KASHI_ADDRESS: {
     [ChainId.BSC]: '0x2cBA6Ab6574646Badc84F0544d05059e57a5dc42',
     [ChainId.BSC_TESTNET]: '',
     [ChainId.ARBITRUM]: '',
-    [ChainId.MOONBASE]: '',
+    [ChainId.ARBITRUM_TESTNET]: '',
+    [ChainId.MOONBEAM_TESTNET]: '',
     [ChainId.AVALANCHE]: '',
-    [ChainId.FUJI]: '',
+    [ChainId.AVALANCHE_TESTNET]: '',
     [ChainId.HECO]: '',
     [ChainId.HECO_TESTNET]: '',
     [ChainId.HARMONY]: '',
     [ChainId.HARMONY_TESTNET]: '',
     [ChainId.OKEX]: '',
-    [ChainId.OKEX_TESTNET]: ''
+    [ChainId.OKEX_TESTNET]: '',
+    [ChainId.CELO]: ''
 }
 
 // export const KASHI_ADDRESS = '0x2cBA6Ab6574646Badc84F0544d05059e57a5dc42'
@@ -136,15 +140,17 @@ export const SUSHISWAP_SWAPPER_ADDRESS: {
     [ChainId.BSC]: '0x1766733112408b95239aD1951925567CB1203084',
     [ChainId.BSC_TESTNET]: '',
     [ChainId.ARBITRUM]: '',
-    [ChainId.MOONBASE]: '',
+    [ChainId.ARBITRUM_TESTNET]: '',
+    [ChainId.MOONBEAM_TESTNET]: '',
     [ChainId.AVALANCHE]: '',
-    [ChainId.FUJI]: '',
+    [ChainId.AVALANCHE_TESTNET]: '',
     [ChainId.HECO]: '',
     [ChainId.HECO_TESTNET]: '',
     [ChainId.HARMONY]: '',
     [ChainId.HARMONY_TESTNET]: '',
     [ChainId.OKEX]: '',
-    [ChainId.OKEX_TESTNET]: ''
+    [ChainId.OKEX_TESTNET]: '',
+    [ChainId.CELO]: ''
 }
 
 export const SUSHISWAP_MULTISWAPPER_ADDRESS: {
@@ -163,15 +169,17 @@ export const SUSHISWAP_MULTISWAPPER_ADDRESS: {
     [ChainId.BSC]: '0x86c655cAc122e9A2fd9Ae1f79Df27b30E357968c',
     [ChainId.BSC_TESTNET]: '',
     [ChainId.ARBITRUM]: '',
-    [ChainId.MOONBASE]: '',
+    [ChainId.ARBITRUM_TESTNET]: '',
+    [ChainId.MOONBEAM_TESTNET]: '',
     [ChainId.AVALANCHE]: '',
-    [ChainId.FUJI]: '',
+    [ChainId.AVALANCHE_TESTNET]: '',
     [ChainId.HECO]: '',
     [ChainId.HECO_TESTNET]: '',
     [ChainId.HARMONY]: '',
     [ChainId.HARMONY_TESTNET]: '',
     [ChainId.OKEX]: '',
-    [ChainId.OKEX_TESTNET]: ''
+    [ChainId.OKEX_TESTNET]: '',
+    [ChainId.CELO]: ''
 }
 
 export const SUSHISWAP_MULTI_EXACT_SWAPPER_ADDRESS = {
@@ -188,15 +196,17 @@ export const SUSHISWAP_MULTI_EXACT_SWAPPER_ADDRESS = {
     [ChainId.BSC]: '0x1B16149Edaf1EFa6ADE6aEEF33e63C6e08c9bB1B',
     [ChainId.BSC_TESTNET]: '',
     [ChainId.ARBITRUM]: '',
-    [ChainId.MOONBASE]: '',
+    [ChainId.ARBITRUM_TESTNET]: '',
+    [ChainId.MOONBEAM_TESTNET]: '',
     [ChainId.AVALANCHE]: '',
-    [ChainId.FUJI]: '',
+    [ChainId.AVALANCHE_TESTNET]: '',
     [ChainId.HECO]: '',
     [ChainId.HECO_TESTNET]: '',
     [ChainId.HARMONY]: '',
     [ChainId.HARMONY_TESTNET]: '',
     [ChainId.OKEX]: '',
-    [ChainId.OKEX_TESTNET]: ''
+    [ChainId.OKEX_TESTNET]: '',
+    [ChainId.CELO]: ''
 }
 
 export const PEGGED_ORACLE_ADDRESS = '0x6cbfbB38498Df0E1e7A4506593cDB02db9001564'
@@ -221,15 +231,17 @@ export const BORING_HELPER_ADDRESS = {
     [ChainId.BSC]: '0x11Ca5375AdAfd6205E41131A4409f182677996E6',
     [ChainId.BSC_TESTNET]: '',
     [ChainId.ARBITRUM]: '',
-    [ChainId.MOONBASE]: '',
+    [ChainId.ARBITRUM_TESTNET]: '',
+    [ChainId.MOONBEAM_TESTNET]: '',
     [ChainId.AVALANCHE]: '',
-    [ChainId.FUJI]: '',
+    [ChainId.AVALANCHE_TESTNET]: '',
     [ChainId.HECO]: '',
     [ChainId.HECO_TESTNET]: '',
     [ChainId.HARMONY]: '',
     [ChainId.HARMONY_TESTNET]: '',
     [ChainId.OKEX]: '',
-    [ChainId.OKEX_TESTNET]: ''
+    [ChainId.OKEX_TESTNET]: '',
+    [ChainId.CELO]: ''
 }
 
 // export const BORING_HELPER_ADDRESS = '0x11Ca5375AdAfd6205E41131A4409f182677996E6'

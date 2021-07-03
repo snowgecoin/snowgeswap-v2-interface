@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@sushiswap/sdk'
+import { ChainId, Token } from '@snowge/swapsdk'
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 
 import { AppState } from '../index'
@@ -51,15 +51,17 @@ const EMPTY_LIST: TokenAddressMap = {
     [ChainId.BSC]: {},
     [ChainId.BSC_TESTNET]: {},
     [ChainId.ARBITRUM]: {},
-    [ChainId.MOONBASE]: {},
+    [ChainId.ARBITRUM_TESTNET]: {},
+    [ChainId.MOONBEAM_TESTNET]: {},
     [ChainId.AVALANCHE]: {},
-    [ChainId.FUJI]: {},
+    [ChainId.AVALANCHE_TESTNET]: {},
     [ChainId.HECO]: {},
     [ChainId.HECO_TESTNET]: {},
     [ChainId.HARMONY]: {},
     [ChainId.HARMONY_TESTNET]: {},
     [ChainId.OKEX]: {},
-    [ChainId.OKEX_TESTNET]: {}
+    [ChainId.OKEX_TESTNET]: {},
+    [ChainId.CELO]: {}
 }
 
 const listCache: WeakMap<TokenList, TokenAddressMap> | null =
@@ -122,7 +124,8 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
         100: { ...map1[100], ...map2[100] }, // xdai
         56: { ...map1[56], ...map2[56] }, // bsc
         97: { ...map1[97], ...map2[97] }, // bsc testnet
-        79377087078960: { ...map1[79377087078960], ...map2[79377087078960] }, // arbitrum
+        42161: { ...map1[42161], ...map2[42161] }, // arbitrum
+        79377087078960: { ...map1[79377087078960], ...map2[79377087078960] }, // arbitrum testnet
         1287: { ...map1[1287], ...map2[1287] }, // moonbase
         128: { ...map1[128], ...map2[128] }, // heco
         256: { ...map1[256], ...map2[256] }, // heco testnet
@@ -131,7 +134,8 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
         1666600000: { ...map1[1666600000], ...map2[1666600000] }, // harmony
         1666700000: { ...map1[1666700000], ...map2[1666700000] }, // harmony testnet
         66: { ...map1[66], ...map2[66] }, // okex
-        65: { ...map1[65], ...map2[65] } // okex testnet
+        65: { ...map1[65], ...map2[65] }, // okex testnet
+        42220: { ...map1[42220], ...map2[42220] } // celo
     }
 }
 

@@ -1,4 +1,4 @@
-import { ChainId, Currency, CurrencyAmount, ETHER, JSBI, Percent, ROUTER_ADDRESS, Token } from '@sushiswap/sdk'
+import { ChainId, Currency, CurrencyAmount, NATIVE, JSBI, Percent, ROUTER_ADDRESS, Token } from '@snowge/swapsdk'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 
 import { AddressZero } from '@ethersproject/constants'
@@ -267,12 +267,10 @@ const builders = {
     },
 
     matic: (chainName: string, data: string, type: 'transaction' | 'token' | 'address' | 'block') => {
-        const prefix = `https://explorer-${chainName}.maticvigil.com`
+        const prefix = `https://${chainName ? `${chainName}.` : ''}polygonscan.com`
         switch (type) {
             case 'transaction':
                 return `${prefix}/tx/${data}`
-            case 'token':
-                return `${prefix}/tokens/${data}`
             default:
                 return `${prefix}/${type}/${data}`
         }
@@ -425,7 +423,7 @@ const chains: ChainObject = {
         chainName: 'arbitrum',
         builder: builders.arbitrum
     },
-    [ChainId.MOONBASE]: {
+    [ChainId.MOONBEAM_TESTNET]: {
         chainName: '',
         builder: builders.moonbase
     },
@@ -433,7 +431,7 @@ const chains: ChainObject = {
         chainName: '',
         builder: builders.avalanche
     },
-    [ChainId.FUJI]: {
+    [ChainId.AVALANCHE_TESTNET]: {
         chainName: 'test',
         builder: builders.avalanche
     },
@@ -537,6 +535,6 @@ export function escapeRegExp(string: string): string {
 }
 
 export function isTokenOnList(defaultTokens: TokenAddressMap, currency?: Currency): boolean {
-    if (currency === ETHER) return true
+    if (currency === NATIVE) return true
     return Boolean(currency instanceof Token && defaultTokens[currency.chainId]?.[currency.address])
 }

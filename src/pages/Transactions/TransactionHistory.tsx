@@ -1,7 +1,7 @@
 import { ArrowUpRight, CheckCircle } from 'react-feather'
 import React, { useContext } from 'react'
 
-import { Currency } from '@sushiswap/sdk'
+import { Currency } from '@snowge/swapsdk'
 import { Dots } from '../../components'
 import DoubleCurrencyLogo from 'components/DoubleLogo'
 import { LinkStyledButton } from '../../theme'

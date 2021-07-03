@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/sdk'
+import { ChainId } from '@snowge/swapsdk'
 import { FortmaticConnector } from './Fortmatic'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { LatticeConnector } from '@web3-react/lattice-connector'
@@ -24,9 +24,9 @@ const RPC = {
     [ChainId.XDAI]: 'https://rpc.xdaichain.com',
     [ChainId.BSC]: 'https://bsc-dataseed.binance.org/',
     [ChainId.BSC_TESTNET]: 'https://data-seed-prebsc-2-s3.binance.org:8545',
-    [ChainId.MOONBASE]: 'https://rpc.testnet.moonbeam.network',
+    [ChainId.MOONBEAM_TESTNET]: 'https://rpc.testnet.moonbeam.network',
     [ChainId.AVALANCHE]: 'https://api.avax.network/ext/bc/C/rpc',
-    [ChainId.FUJI]: 'https://api.avax-test.network/ext/bc/C/rpc',
+    [ChainId.AVALANCHE_TESTNET]: 'https://api.avax-test.network/ext/bc/C/rpc',
     [ChainId.HECO]: 'https://http-mainnet.hecochain.com',
     [ChainId.HECO_TESTNET]: 'https://http-testnet.hecochain.com',
     [ChainId.HARMONY]: 'https://explorer.harmony.one',

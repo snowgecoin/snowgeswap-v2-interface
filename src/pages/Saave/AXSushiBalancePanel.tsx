@@ -1,4 +1,4 @@
-import { Pair } from '@sushiswap/sdk'
+import { Pair } from '@snowge/swapsdk'
 import { darken } from 'polished'
 import React from 'react'
 import styled from 'styled-components'

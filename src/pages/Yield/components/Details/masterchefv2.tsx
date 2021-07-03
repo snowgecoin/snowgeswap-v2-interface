@@ -1,7 +1,7 @@
 import { ApprovalState, useApproveCallback } from '../../../../hooks/useApproveCallback'
 import { Link, useHistory } from 'react-router-dom'
 import React, { useState } from 'react'
-import { Token, WETH } from '@sushiswap/sdk'
+import { Token, WETH } from '@snowge/swapsdk'
 import { Trans, t } from '@lingui/macro'
 import { formattedNum, isAddress, isAddressString, isWETH } from '../../../../utils'
 
@@ -92,7 +92,7 @@ export default function InputGroup({
                     </div>
                 )}
                 <div className="px-4">
-                    <div className="block w-full p-4 text-sm rounded bg-purple bg-opacity-20 text-high-emphesis">
+                    <div className="block w-full p-4 text-sm rounded bg-snowge-blue-white bg-opacity-20 text-high-emphesis">
                         <div className="flex items-center">
                             <div className="ml-3">
                                 <p>

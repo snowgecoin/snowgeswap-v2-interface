@@ -1,4 +1,4 @@
-import { ChainId, Currency, currencyEquals, ETHER, Token } from '@sushiswap/sdk'
+import { ChainId, Currency, currencyEquals, NATIVE, Token } from '@snowge/swapsdk'
 import React from 'react'
 import { Text } from 'rebass'
 import styled from 'styled-components'
@@ -44,13 +44,13 @@ export default function CommonBases({
             <AutoRow gap="4px">
                 <BaseWrapper
                     onClick={() => {
-                        if (!selectedCurrency || !currencyEquals(selectedCurrency, ETHER)) {
-                            onSelect(ETHER)
+                        if (!selectedCurrency || !currencyEquals(selectedCurrency, NATIVE)) {
+                            onSelect(NATIVE)
                         }
                     }}
-                    disable={selectedCurrency === ETHER}
+                    disable={selectedCurrency === NATIVE}
                 >
-                    <CurrencyLogo currency={ETHER} style={{ marginRight: 8 }} />
+                    <CurrencyLogo currency={NATIVE} style={{ marginRight: 8 }} />
                     <Text fontWeight={500} fontSize={16}>
                         {Currency.getNativeCurrencySymbol(chainId)}
                     </Text>

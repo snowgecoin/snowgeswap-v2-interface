@@ -1,5 +1,5 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { Token, WETH } from '@sushiswap/sdk'
+import { Token, WETH } from '@snowge/swapsdk'
 import { Input as NumericalInput } from '../../../../components/NumericalInput'
 import { Fraction } from '../../../../entities'
 import { useActiveWeb3React } from '../../../../hooks/useActiveWeb3React'
@@ -91,7 +91,7 @@ export default function InputGroup({
                     </div>
                 )}
                 <div className="px-4">
-                    <div className="bg-purple bg-opacity-20 text-high-emphesis block w-full rounded text-sm p-4">
+                    <div className="bg-snowge-blue-white bg-opacity-20 text-high-emphesis block w-full rounded text-sm p-4">
                         <div className="flex items-center">
                             <div className="ml-3">
                                 <p>

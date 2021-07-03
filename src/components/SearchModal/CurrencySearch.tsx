@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@sushiswap/sdk'
+import { Currency, NATIVE, Token } from '@snowge/swapsdk'
 import useDebounce from 'hooks/useDebounce'
 import { useOnClickOutside } from 'hooks/useOnClickOutside'
 import useTheme from 'hooks/useTheme'
@@ -127,7 +127,7 @@ export function CurrencySearch({
             if (e.key === 'Enter') {
                 const s = debouncedQuery.toLowerCase().trim()
                 if (s === 'eth') {
-                    handleCurrencySelect(ETHER)
+                    handleCurrencySelect(NATIVE)
                 } else if (filteredSortedTokens.length > 0) {
                     if (
                         filteredSortedTokens[0].symbol?.toLowerCase() === debouncedQuery.trim().toLowerCase() ||
@@ -163,7 +163,7 @@ export function CurrencySearch({
                     ref={inputRef as RefObject<HTMLInputElement>}
                     onChange={handleInput}
                     onKeyDown={handleEnter}
-                    className="w-full bg-transparent border-gradient-r-blue-pink-dark-900 border-transparent border-solid border-1 rounded placeholder-secondary focus:placeholder-primary  font-bold text-caption px-6 py-3.5"
+                    className="w-full bg-transparent border-gradient-r-blue-white-dark-900 border-transparent border-solid border-1 rounded placeholder-secondary focus:placeholder-primary  font-bold text-caption px-6 py-3.5"
                 />
             </div>
             {showCommonBases && (

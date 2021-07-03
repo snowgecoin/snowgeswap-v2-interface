@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, ETHER, JSBI, Pair, Percent, Price, TokenAmount } from '@sushiswap/sdk'
+import { Currency, CurrencyAmount, NATIVE, JSBI, Pair, Percent, Price, TokenAmount } from '@snowge/swapsdk'
 import { useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { PairState, usePair } from '../../data/Reserves'
@@ -112,7 +112,7 @@ export function useDerivedMintInfo(
                     dependentField === Field.CURRENCY_B
                         ? pair.priceOf(tokenA).quote(wrappedIndependentAmount)
                         : pair.priceOf(tokenB).quote(wrappedIndependentAmount)
-                return dependentCurrency === ETHER
+                return dependentCurrency === NATIVE
                     ? CurrencyAmount.ether(dependentTokenAmount.raw)
                     : dependentTokenAmount
             }

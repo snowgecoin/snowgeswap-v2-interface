@@ -18,7 +18,7 @@ module.exports = {
                 tl: 'to top left'
             },
             colors: {
-                'blue-pink': ['#27B0E6', '#FA52A0'],
+                'blue-white': ['#10ABEA', '#FFFFFF'],
                 'pink-red-light-brown': ['#FE5A75', '#FEC464']
             },
             background: {
@@ -46,7 +46,13 @@ module.exports = {
             'light-brown': '#FEC464',
             'light-yellow': '#FFD166',
             'cyan-blue': '#0993EC',
+            'snowge-blue-white': '#9FDDF6',
+            'snowge-light-blue': '#10ABEA',
+            'snowge-dark-blue': '#0F4395',
+            'snowge-accent-one': '#3C8980',
+            'snowge-accent-two': '#246E78',
             pink: '#F338C3',
+            white: '#FFFFFF',
 
             'dark-pink': '#221825',
             'dark-blue': '#0F182A',
@@ -179,8 +185,8 @@ module.exports = {
                 'pink-glow-hovered': '0px 57px 90px -47px rgba(250, 82, 160, 0.30)',
                 'blue-glow-hovered': '0px 57px 90px -47px rgba(39, 176, 230, 0.34)',
 
-                'swap-blue-glow': '0px 50px 250px -47px rgba(39, 176, 230, 0.29)',
-                'liquidity-purple-glow': '0px 50px 250px -47px rgba(123, 97, 255, 0.23);'
+                'swap-blue-glow': '0px 50px 250px -47px #10ABEA',
+                'liquidity-purple-glow': '0px 50px 250px -47px #9FDDF6;'
             },
             ringWidth: {
                 ...defaultTheme.ringWidth,
@@ -246,7 +252,7 @@ module.exports = {
                         border: 'double 1px transparent',
                         borderRadius: '0.375rem',
                         backgroundImage:
-                            'linear-gradient(#202231, #202231), linear-gradient(to right, #0993EC, #F338C3)',
+                            'linear-gradient(#202231, #202231), linear-gradient(to right, #10ABEA, #FFFFFF)',
                         backgroundOrigin: 'border-box',
                         backgroundClip: 'padding-box, border-box'
                     }

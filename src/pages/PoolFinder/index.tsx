@@ -1,4 +1,4 @@
-import { Currency, ETHER, JSBI, TokenAmount } from '@sushiswap/sdk'
+import { Currency, NATIVE, JSBI, TokenAmount } from '@snowge/swapsdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Plus } from 'react-feather'
 import { Text } from 'rebass'
@@ -33,7 +33,7 @@ export default function PoolFinder() {
     const [showSearch, setShowSearch] = useState<boolean>(false)
     const [activeField, setActiveField] = useState<number>(Fields.TOKEN1)
 
-    const [currency0, setCurrency0] = useState<Currency | null>(ETHER)
+    const [currency0, setCurrency0] = useState<Currency | null>(NATIVE)
     const [currency1, setCurrency1] = useState<Currency | null>(null)
 
     const [pairState, pair] = usePair(currency0 ?? undefined, currency1 ?? undefined)
@@ -84,7 +84,7 @@ export default function PoolFinder() {
     return (
         <>
             <Helmet>
-                <title>{i18n._(t`Find Pool`)} | Sushi</title>
+                <title>{i18n._(t`Find Pool`)} | SnowgeSwap</title>
             </Helmet>
             <div className="relative w-full max-w-lg rounded bg-dark-900 shadow-liquidity-purple-glow">
                 <FindPoolTabs />

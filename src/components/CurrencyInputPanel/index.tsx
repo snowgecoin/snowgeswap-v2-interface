@@ -1,4 +1,4 @@
-import { Currency, Pair, ChainId } from '@sushiswap/sdk'
+import { Currency, Pair, ChainId } from '@snowge/swapsdk'
 import { darken } from 'polished'
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'

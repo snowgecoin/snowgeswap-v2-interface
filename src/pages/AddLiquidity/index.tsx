@@ -1,6 +1,6 @@
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { ButtonError, ButtonLight, ButtonPrimary } from '../../components/ButtonLegacy'
-import { Currency, ETHER, TokenAmount, WETH, currencyEquals } from '@sushiswap/sdk'
+import { Currency, NATIVE, TokenAmount, WETH, currencyEquals } from '@snowge/swapsdk'
 import { Dots, Wrapper } from '../Pool/styleds'
 import React, { useCallback, useContext, useState } from 'react'
 import Row, { AutoRow, RowBetween, RowFlat } from '../../components/Row'
@@ -150,8 +150,8 @@ export default function AddLiquidity({
             method: (...args: any) => Promise<TransactionResponse>,
             args: Array<string | string[] | number>,
             value: BigNumber | null
-        if (currencyA === ETHER || currencyB === ETHER) {
-            const tokenBIsETH = currencyB === ETHER
+        if (currencyA === NATIVE || currencyB === NATIVE) {
+            const tokenBIsETH = currencyB === NATIVE
             estimate = router.estimateGas.addLiquidityETH
             method = router.addLiquidityETH
             args = [
@@ -328,7 +328,7 @@ export default function AddLiquidity({
     return (
         <>
             <Helmet>
-                <title>{i18n._(t`Add Liquidity`)} | Sushi</title>
+                <title>{i18n._(t`Add Liquidity`)} | SnowgeSwap</title>
             </Helmet>
             <div className="w-full max-w-2xl mb-5 px-4">
                 <NavLink

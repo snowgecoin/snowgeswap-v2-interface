@@ -1,4 +1,4 @@
-import { Pair } from '@sushiswap/sdk'
+import { Pair } from '@snowge/swapsdk'
 import { darken } from 'polished'
 import React, { useCallback, useState } from 'react'
 import { t } from '@lingui/macro'

@@ -1,4 +1,4 @@
-import { Token } from '@sushiswap/sdk'
+import { Token } from '@snowge/swapsdk'
 import { useMemo } from 'react'
 import { isAddress } from '../../utils'
 

@@ -2,7 +2,7 @@ import { NETWORK_ICON, NETWORK_LABEL } from '../../constants/networks'
 import { useModalOpen, useNetworkModalToggle } from '../../state/application/hooks'
 
 import { ApplicationModal } from '../../state/application/actions'
-import { ChainId } from '@sushiswap/sdk'
+import { ChainId } from '@snowge/swapsdk'
 import Modal from '../Modal'
 import ModalHeader from '../ModalHeader'
 import React from 'react'
@@ -66,7 +66,7 @@ const PARAMS: {
             //'https://matic-mainnet.chainstacklabs.com/'
             'https://rpc-mainnet.maticvigil.com'
         ],
-        blockExplorerUrls: ['https://explorer-mainnet.maticvigil.com']
+        blockExplorerUrls: ['https://polygonscan.com']
     },
     [ChainId.HECO]: {
         chainId: '0x80',
@@ -136,25 +136,16 @@ export default function NetworkModal(): JSX.Element | null {
         <Modal isOpen={networkModalOpen} onDismiss={toggleNetworkModal}>
             <ModalHeader onClose={toggleNetworkModal} title="Select a Network" />
             <div className="text-lg text-primary mb-6">
-                You are currently browsing <span className="font-bold text-pink">SUSHI</span>
-                <br /> on the <span className="font-bold text-blue">{NETWORK_LABEL[chainId]}</span> network
+                Hey there floofer! You are currently browsing{' '}
+                <span className="font-bold text-snowge-light-blue">SnowgeSwap </span>
+                on the <span className="font-bold text-blue">{NETWORK_LABEL[chainId]}</span> network.
             </div>
 
             <div className="flex flex-col space-y-5 overflow-y-auto">
-                {[
-                    ChainId.MAINNET,
-                    ChainId.FANTOM,
-                    ChainId.BSC,
-                    ChainId.MATIC,
-                    ChainId.HECO,
-                    ChainId.XDAI,
-                    ChainId.HARMONY,
-                    ChainId.AVALANCHE,
-                    ChainId.OKEX
-                ].map((key: ChainId, i: number) => {
+                {[ChainId.BSC, ChainId.MATIC, ChainId.HARMONY].map((key: ChainId, i: number) => {
                     if (chainId === key) {
                         return (
-                            <button key={i} className="bg-gradient-to-r from-blue to-pink w-full rounded p-px">
+                            <button key={i} className="bg-gradient-to-r from-blue to-white w-full rounded p-px">
                                 <div className="flex items-center h-full w-full bg-dark-1000 rounded p-3">
                                     <img
                                         src={NETWORK_ICON[key]}

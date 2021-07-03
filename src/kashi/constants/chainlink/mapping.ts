@@ -1,4 +1,4 @@
-import { ChainId } from '@sushiswap/sdk'
+import { ChainId } from '@snowge/swapsdk'
 
 export type ChainlinkMappingList = {
     readonly [address: string]: {

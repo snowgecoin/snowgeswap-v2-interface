@@ -3,7 +3,7 @@ import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper } from '../../
 import { AutoRow, RowBetween } from '../../components/Row'
 import { ButtonConfirmed, ButtonError, ButtonLight, ButtonPrimary } from '../../components/ButtonLegacy'
 import Card, { DarkCard, GreyCard } from '../../components/CardLegacy'
-import { ChainId, CurrencyAmount, JSBI, Token, Trade } from '@sushiswap/sdk'
+import { ChainId, CurrencyAmount, JSBI, Token, Trade } from '@snowge/swapsdk'
 import Column, { AutoColumn } from '../../components/Column'
 import { LinkStyledButton, TYPE } from '../../theme'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
@@ -56,6 +56,8 @@ import SakeBanner from '../../assets/images/sake-banner.jpg'
 import SakeLogo from '../../assets/images/sake-square.png'
 import SakeBottle from '../../assets/images/sake-half.png'
 //import MisoLogo from '../../assets/images/miso-logo.png'
+import Socials from '../../components/socials'
+import QuestionHelper from '../../components/QuestionHelper'
 
 export default function Swap() {
     const { i18n } = useLingui()
@@ -306,10 +308,10 @@ export default function Swap() {
     return (
         <>
             <Helmet>
-                <title>{i18n._(t`Swap`)} | Sushi</title>
+                <title>{i18n._(t`Swap`)} | SnowgeSwap</title>
                 <meta
                     name="description"
-                    content="Sushi allows for swapping of ERC20 compatible tokens across multiple networks"
+                    content="SnowgeSwap allows for swapping of ERC20 compatible tokens on multiple networks"
                 />
             </Helmet>
             <TokenWarningModal
@@ -334,34 +336,16 @@ export default function Swap() {
                         swapErrorMessage={swapErrorMessage}
                         onDismiss={handleConfirmDismiss}
                     />
-                    {chainId && chainId === ChainId.MATIC && (
-                        <div className="hidden md:block pb-4 space-y-2">
-                            <DarkCard>
-                                <div className="flex justify-between items-center">
-                                    <div>
-                                        <div className="text-white">New Yield Farms: ibBTC, BIFI, dTOP </div>
-                                        <div className="text-purple text-sm">Add liquidity and stake now</div>
-                                    </div>
-                                    <div className=""></div>
-                                    <Link
-                                        to="/yield"
-                                        className="inline-flex items-center rounded-sm px-3 py-2 border-2 border-purple text-purple"
-                                    >
-                                        Visit Yield
-                                    </Link>
-                                    {/* <a
-                                        href="https://ayokiroll.medium.com/cf7e932f3a8"
-                                        target="_blank"
-                                        rel="noreferrer noopener"
-                                        className="inline-flex items-center rounded-sm px-3 py-2 border-2 border-purple text-purple"
-                                    >
-                                        Read Tutorial
-                                    </a> */}
-                                </div>
-                            </DarkCard>
-                        </div>
-                    )}
                     <AutoColumn gap={'md'}>
+                        <div className="flex justify-between items-center">
+                            <div>
+                                <div className="text-white">
+                                    SnowgeSwap - the <span className="text-snowge-light-blue">floofiest</span>{' '}
+                                    decentralized exchange.
+                                </div>
+                            </div>
+                            <div className=""></div>
+                        </div>
                         <CurrencyInputPanel
                             label={
                                 independentField === Field.OUTPUT && !showWrap && trade
@@ -497,6 +481,41 @@ export default function Swap() {
                             </Card>
                         )}
                     </AutoColumn>
+                    {chainId &&
+                        (chainId === ChainId.MATIC ||
+                            chainId === ChainId.BSC ||
+                            chainId === ChainId.MATIC_TESTNET ||
+                            chainId === ChainId.BSC_TESTNET) && (
+                            <div className="hidden md:block pb-4 space-y-2">
+                                <DarkCard>
+                                    <div className="flex justify-between items-center">
+                                        <div>
+                                            <div className="text-white">Upcoming Yield Farms: Snowge, Laika, Astro</div>
+                                            <div className="text-snowge-light-blue text-sm">
+                                                Add liquidity and stake - coming soon!
+                                            </div>
+                                        </div>
+                                        <div className=""></div>
+                                        <QuestionHelper text={i18n._(t`Coming Soon!`)}>
+                                            <Link
+                                                to="/yield"
+                                                className="inline-flex items-center rounded-sm px-3 py-2 border-2 border-snowge-light-blue text-snowge-light-blue"
+                                            >
+                                                Visit Yield
+                                            </Link>
+                                        </QuestionHelper>
+                                        {/* <a
+                                        href="https://ayokiroll.medium.com/cf7e932f3a8"
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                        className="inline-flex items-center rounded-sm px-3 py-2 border-2 border-purple text-purple"
+                                    >
+                                        Read Tutorial
+                                    </a> */}
+                                    </div>
+                                </DarkCard>
+                            </div>
+                        )}
                     <BottomGrouping>
                         {swapIsUnsupported ? (
                             <ButtonPrimary disabled={true}>
@@ -607,6 +626,7 @@ export default function Swap() {
                             </Column>
                         )}
                         {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
+                        <Socials />
                     </BottomGrouping>
                     {/*{!trade && chainId && chainId === ChainId.MAINNET && (*/}
                     {/*    <div*/}

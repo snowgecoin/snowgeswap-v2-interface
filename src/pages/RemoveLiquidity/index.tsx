@@ -1,7 +1,7 @@
 import { ApprovalState, useApproveCallback } from '../../hooks/useApproveCallback'
 import { ArrowDown, Plus } from 'react-feather'
 import { ButtonConfirmed, ButtonError, ButtonLight, ButtonPrimary } from '../../components/ButtonLegacy'
-import { ChainId, Currency, ETHER, Percent, WETH, currencyEquals } from '@sushiswap/sdk'
+import { ChainId, Currency, NATIVE, Percent, WETH, currencyEquals } from '@snowge/swapsdk'
 import React, { useCallback, useContext, useMemo, useState } from 'react'
 import Row, { AutoRow, RowBetween, RowFixed } from '../../components/Row'
 import { Trans, t } from '@lingui/macro'
@@ -231,8 +231,8 @@ export default function RemoveLiquidity({
         const liquidityAmount = parsedAmounts[Field.LIQUIDITY]
         if (!liquidityAmount) throw new Error('missing liquidity amount')
 
-        const currencyBIsETH = currencyB === ETHER
-        const oneCurrencyIsETH = currencyA === ETHER || currencyBIsETH
+        const currencyBIsETH = currencyB === NATIVE
+        const oneCurrencyIsETH = currencyA === NATIVE || currencyBIsETH
 
         if (!tokenA || !tokenB) throw new Error('could not wrap')
 
@@ -458,7 +458,7 @@ export default function RemoveLiquidity({
         [onUserInput]
     )
 
-    const oneCurrencyIsETH = currencyA === ETHER || currencyB === ETHER
+    const oneCurrencyIsETH = currencyA === NATIVE || currencyB === NATIVE
     const oneCurrencyIsWETH = Boolean(
         chainId &&
             ((currencyA && currencyEquals(WETH[chainId], currencyA)) ||
@@ -504,7 +504,7 @@ export default function RemoveLiquidity({
     return (
         <>
             <Helmet>
-                <title>{i18n._(t`Remove Liquidity`)} | Sushi</title>
+                <title>{i18n._(t`Remove Liquidity`)} | SnowgeSwap</title>
             </Helmet>
 
             <div className="w-full max-w-2xl mb-5 px-4">

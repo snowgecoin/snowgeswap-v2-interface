@@ -1,7 +1,7 @@
 import Arbitrum from '../assets/networks/arbitrum-network.jpg'
 import Avalanche from '../assets/networks/avalanche-network.jpg'
 import Bsc from '../assets/networks/bsc-network.jpg'
-import { ChainId } from '@sushiswap/sdk'
+import { ChainId } from '@snowge/swapsdk'
 import Fantom from '../assets/networks/fantom-network.jpg'
 import Goerli from '../assets/networks/goerli-network.jpg'
 import Harmony from '../assets/networks/harmonyone-network.jpg'
@@ -15,6 +15,11 @@ import Polygon from '../assets/networks/polygon-network.jpg'
 import Rinkeby from '../assets/networks/rinkeby-network.jpg'
 import Ropsten from '../assets/networks/ropsten-network.jpg'
 import xDai from '../assets/networks/xdai-network.jpg'
+import Celo from '../assets/networks/celo-network.png'
+import tBsc from '../assets/transparent_networks/bnb.png'
+import tEth from '../assets/transparent_networks/ethereum.png'
+import tPoly from '../assets/transparent_networks/matic.png'
+import tOne from '../assets/transparent_networks/one.png'
 
 export const NETWORK_ICON = {
     [ChainId.MAINNET]: Mainnet,
@@ -30,15 +35,44 @@ export const NETWORK_ICON = {
     [ChainId.MATIC_TESTNET]: Matic,
     [ChainId.XDAI]: xDai,
     [ChainId.ARBITRUM]: Arbitrum,
-    [ChainId.MOONBASE]: Moonbeam,
+    [ChainId.ARBITRUM_TESTNET]: Arbitrum,
+    [ChainId.MOONBEAM_TESTNET]: Moonbeam,
     [ChainId.AVALANCHE]: Avalanche,
-    [ChainId.FUJI]: Avalanche,
+    [ChainId.AVALANCHE_TESTNET]: Avalanche,
     [ChainId.HECO]: Heco,
     [ChainId.HECO_TESTNET]: Heco,
     [ChainId.HARMONY]: Harmony,
     [ChainId.HARMONY_TESTNET]: Harmony,
     [ChainId.OKEX]: OKEx,
-    [ChainId.OKEX_TESTNET]: OKEx
+    [ChainId.OKEX_TESTNET]: OKEx,
+    [ChainId.CELO]: Celo
+}
+
+export const NETWORK_ICON_TRANSPARENT = {
+    [ChainId.MAINNET]: tEth,
+    [ChainId.ROPSTEN]: tEth,
+    [ChainId.RINKEBY]: tEth,
+    [ChainId.GÖRLI]: tEth,
+    [ChainId.KOVAN]: tEth,
+    [ChainId.FANTOM]: Fantom,
+    [ChainId.FANTOM_TESTNET]: Fantom,
+    [ChainId.BSC]: tBsc,
+    [ChainId.BSC_TESTNET]: tBsc,
+    [ChainId.MATIC]: tPoly,
+    [ChainId.MATIC_TESTNET]: tPoly,
+    [ChainId.XDAI]: xDai,
+    [ChainId.ARBITRUM]: Arbitrum,
+    [ChainId.ARBITRUM_TESTNET]: Arbitrum,
+    [ChainId.MOONBEAM_TESTNET]: Moonbeam,
+    [ChainId.AVALANCHE]: Avalanche,
+    [ChainId.AVALANCHE_TESTNET]: Avalanche,
+    [ChainId.HECO]: Heco,
+    [ChainId.HECO_TESTNET]: Heco,
+    [ChainId.HARMONY]: tOne,
+    [ChainId.HARMONY_TESTNET]: tOne,
+    [ChainId.OKEX]: OKEx,
+    [ChainId.OKEX_TESTNET]: OKEx,
+    [ChainId.CELO]: Celo
 }
 
 export const NETWORK_LABEL: { [chainId in ChainId]?: string } = {
@@ -54,9 +88,9 @@ export const NETWORK_LABEL: { [chainId in ChainId]?: string } = {
     [ChainId.XDAI]: 'xDai',
     [ChainId.BSC]: 'BSC',
     [ChainId.BSC_TESTNET]: 'BSC Testnet',
-    [ChainId.MOONBASE]: 'Moonbase',
+    [ChainId.MOONBEAM_TESTNET]: 'Moonbase',
     [ChainId.AVALANCHE]: 'Avalanche',
-    [ChainId.FUJI]: 'Fuji',
+    [ChainId.AVALANCHE_TESTNET]: 'Fuji',
     [ChainId.HECO]: 'HECO',
     [ChainId.HECO_TESTNET]: 'HECO Testnet',
     [ChainId.HARMONY]: 'Harmony',

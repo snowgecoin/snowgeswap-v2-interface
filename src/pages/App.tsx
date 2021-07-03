@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useHistory, useLocation, useParams } from 'react-router-dom'
-import { AppBar, Polling, Popups } from '../components'
+import { AppBar, Polling, Popups, Snowgeflakes } from '../components'
 import Web3ReactManager from '../components/Web3ReactManager'
 import ReactGA from 'react-ga'
 import Routes from '../routes'
@@ -88,6 +88,7 @@ function App(): JSX.Element {
     return (
         <Suspense fallback={null}>
             <div className="flex flex-col items-start h-screen overflow-x-hidden">
+                <Snowgeflakes />
                 <AppBar />
                 <div ref={bodyRef} className={wrapperClassList}>
                     <Popups />

@@ -1,7 +1,9 @@
-import { ChainId, Currency } from '@sushiswap/sdk'
+import { ChainId, Currency } from '@snowge/swapsdk'
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Logo from '../assets/images/logo.png'
+import SwapLogo from '../assets/images/swaplogoicon.png'
+import SwapLogoText from '../assets/images/swaplogotext.png'
 import { useActiveWeb3React } from '../hooks/useActiveWeb3React'
 import { useETHBalances } from '../state/wallet/hooks'
 import { ReactComponent as Burger } from '../assets/images/burger.svg'
@@ -46,7 +48,14 @@ function AppBar(): JSX.Element {
                             <div className="flex items-center justify-between h-16">
                                 <div className="flex items-center">
                                     <div className="flex-shrink-0">
-                                        <img src={Logo} alt="Sushi" className="h-10 w-auto" />
+                                        <img
+                                            src={`https://snowge.s3.amazonaws.com/Snowge_Animated_LogoMEDIUM.gif`}
+                                            alt="SnowgeSwap"
+                                            className="h-15 w-auto"
+                                        />
+                                    </div>
+                                    <div className="flex-shrink-0 vert-center">
+                                        <img src={SwapLogoText} alt="SnowgeSwap" className="h-20 w-40" />
                                     </div>
                                     <div className="hidden sm:block sm:ml-4">
                                         <div className="flex space-x-2">
@@ -64,59 +73,15 @@ function AppBar(): JSX.Element {
                                                     pathname.startsWith('/find')
                                                 }
                                             >
-                                                {i18n._(t`Pool`)}
+                                                {i18n._(t`Liquidity`)}
                                             </NavLink>
-                                            {chainId && [ChainId.MAINNET, ChainId.MATIC].includes(chainId) && (
-                                                <NavLink id={`yield-nav-link`} to={'/yield'}>
-                                                    {i18n._(t`Yield`)}
-                                                </NavLink>
-                                            )}
-                                            {chainId === ChainId.MAINNET && (
-                                                <NavLink id={`sushibar-nav-link`} to={'/sushibar'}>
-                                                    {i18n._(t`SushiBar`)}
-                                                </NavLink>
-                                            )}
-                                            {chainId &&
-                                                [ChainId.MAINNET, ChainId.KOVAN, ChainId.BSC, ChainId.MATIC].includes(
-                                                    chainId
-                                                ) && (
-                                                    <NavLink id={`kashi-nav-link`} to={'/bento/kashi/lend'}>
-                                                        {i18n._(t`Lend`)}
+                                            {chainId && [ChainId.BSC, ChainId.MATIC].includes(chainId) && (
+                                                <QuestionHelper text={i18n._(t`Coming Soon!`)}>
+                                                    <NavLink id={`yield-nav-link`} to={'/yield'}>
+                                                        {i18n._(t`Yield Farms`)}
                                                     </NavLink>
-                                                )}
-                                            {chainId &&
-                                                [ChainId.MAINNET, ChainId.KOVAN, ChainId.BSC, ChainId.MATIC].includes(
-                                                    chainId
-                                                ) && (
-                                                    <NavLink id={`bento-nav-link`} to={'/bento'}>
-                                                        {i18n._(t`BentoBox`)}
-                                                    </NavLink>
-                                                )}
-                                            {chainId === ChainId.MAINNET && (
-                                                <ExternalLink id={`stake-nav-link`} href={'https://miso.sushi.com'}>
-                                                    {i18n._(t`Miso`)}
-                                                </ExternalLink>
+                                                </QuestionHelper>
                                             )}
-                                            {chainId === ChainId.MAINNET && (
-                                                <NavLink id={`vesting-nav-link`} to={'/vesting'}>
-                                                    {i18n._(t`Vesting`)}
-                                                </NavLink>
-                                            )}
-                                            {chainId &&
-                                                [
-                                                    ChainId.MAINNET,
-                                                    ChainId.BSC,
-                                                    ChainId.XDAI,
-                                                    ChainId.FANTOM,
-                                                    ChainId.MATIC
-                                                ].includes(chainId) && (
-                                                    <ExternalLink
-                                                        id={`analytics-nav-link`}
-                                                        href={ANALYTICS_URL[chainId] || 'https://analytics.sushi.com'}
-                                                    >
-                                                        {i18n._(t`Analytics`)}
-                                                    </ExternalLink>
-                                                )}
                                         </div>
                                     </div>
                                 </div>
@@ -124,158 +89,35 @@ function AppBar(): JSX.Element {
                                 <div className="flex flex-row items-center justify-center w-full lg:w-auto p-4 fixed left-0 bottom-0 bg-dark-1000 lg:relative lg:p-0 lg:bg-transparent">
                                     <div className="flex items-center justify-between sm:justify-end space-x-2 w-full">
                                         {chainId &&
-                                            [ChainId.MAINNET].includes(chainId) &&
-                                            library &&
-                                            library.provider.isMetaMask && (
-                                                <>
-                                                    <QuestionHelper text={i18n._(t`Add SAK3 to your Metamask wallet`)}>
-                                                        <div
-                                                            className="hidden sm:inline-block rounded-md bg-dark-900 hover:bg-dark-800 cursor-pointer border border-gray-400"
-                                                            onClick={() => {
-                                                                const params: any = {
-                                                                    type: 'ERC20',
-                                                                    options: {
-                                                                        address:
-                                                                            '0xe9F84dE264E91529aF07Fa2C746e934397810334',
-                                                                        symbol: 'SAK3',
-                                                                        decimals: 18,
-                                                                        image:
-                                                                            'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xe9F84dE264E91529aF07Fa2C746e934397810334/logo.png'
-                                                                    }
-                                                                }
-
-                                                                if (
-                                                                    library &&
-                                                                    library.provider.isMetaMask &&
-                                                                    library.provider.request
-                                                                ) {
-                                                                    library.provider
-                                                                        .request({
-                                                                            method: 'wallet_watchAsset',
-                                                                            params
-                                                                        })
-                                                                        .then(success => {
-                                                                            if (success) {
-                                                                                console.log(
-                                                                                    'Successfully added SAK3 to MetaMask'
-                                                                                )
-                                                                            } else {
-                                                                                throw new Error('Something went wrong.')
-                                                                            }
-                                                                        })
-                                                                        .catch(console.error)
-                                                                }
-                                                            }}
-                                                        >
-                                                            <img
-                                                                src={`https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xe9F84dE264E91529aF07Fa2C746e934397810334/logo.png`}
-                                                                alt="Switch Network"
-                                                                style={{
-                                                                    minWidth: 36,
-                                                                    minHeight: 36,
-                                                                    maxWidth: 36,
-                                                                    maxHeight: 36
-                                                                }}
-                                                                className="rounded-md object-contain"
-                                                            />
-                                                        </div>
-                                                    </QuestionHelper>
-                                                </>
-                                            )}
-                                        {chainId &&
-                                            [ChainId.MAINNET].includes(chainId) &&
+                                            [ChainId.BSC, ChainId.MATIC].includes(chainId) &&
                                             library &&
                                             library.provider.isMetaMask && (
                                                 <>
                                                     <QuestionHelper
-                                                        text={i18n._(t`Add xSushi to your Metamask wallet`)}
+                                                        text={i18n._(t`Add SNOWGE to your Metamask wallet`)}
                                                     >
-                                                        <div
-                                                            className="hidden sm:inline-block rounded-md bg-dark-900 hover:bg-dark-800 cursor-pointer"
-                                                            onClick={() => {
-                                                                const params: any = {
-                                                                    type: 'ERC20',
-                                                                    options: {
-                                                                        address:
-                                                                            '0x8798249c2e607446efb7ad49ec89dd1865ff4272',
-                                                                        symbol: 'XSUSHI',
-                                                                        decimals: 18,
-                                                                        image:
-                                                                            'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272/logo.png'
-                                                                    }
-                                                                }
-
-                                                                if (
-                                                                    library &&
-                                                                    library.provider.isMetaMask &&
-                                                                    library.provider.request
-                                                                ) {
-                                                                    library.provider
-                                                                        .request({
-                                                                            method: 'wallet_watchAsset',
-                                                                            params
-                                                                        })
-                                                                        .then(success => {
-                                                                            if (success) {
-                                                                                console.log(
-                                                                                    'Successfully added XSUSHI to MetaMask'
-                                                                                )
-                                                                            } else {
-                                                                                throw new Error('Something went wrong.')
-                                                                            }
-                                                                        })
-                                                                        .catch(console.error)
-                                                                }
-                                                            }}
-                                                        >
-                                                            <img
-                                                                src={`${process.env.PUBLIC_URL}/images/tokens/xsushi-square.jpg`}
-                                                                alt="Switch Network"
-                                                                style={{
-                                                                    minWidth: 36,
-                                                                    minHeight: 36,
-                                                                    maxWidth: 36,
-                                                                    maxHeight: 36
-                                                                }}
-                                                                className="rounded-md object-contain"
-                                                            />
-                                                        </div>
-                                                    </QuestionHelper>
-                                                </>
-                                            )}
-
-                                        {chainId &&
-                                            [ChainId.MAINNET, ChainId.BSC, ChainId.MATIC].includes(chainId) &&
-                                            library &&
-                                            library.provider.isMetaMask && (
-                                                <>
-                                                    <QuestionHelper text={i18n._(t`Add Sushi to your Metamask wallet`)}>
                                                         <div
                                                             className="hidden sm:inline-block rounded-md bg-dark-900 hover:bg-dark-800 cursor-pointer"
                                                             onClick={() => {
                                                                 let address: string | undefined
                                                                 switch (chainId) {
-                                                                    case ChainId.MAINNET:
-                                                                        address =
-                                                                            '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2'
-                                                                        break
                                                                     case ChainId.BSC:
                                                                         address =
-                                                                            '0x947950BcC74888a40Ffa2593C5798F11Fc9124C4'
+                                                                            '0x5e9280d53f28281ce098c8f64e49f5f5dc9ea185'
                                                                         break
                                                                     case ChainId.MATIC:
                                                                         address =
-                                                                            '0x0b3F868E0BE5597D5DB7fEB59E1CADBb0fdDa50a'
+                                                                            '0x5e9280d53f28281ce098c8f64e49f5f5dc9ea185'
                                                                         break
                                                                 }
                                                                 const params: any = {
                                                                     type: 'ERC20',
                                                                     options: {
                                                                         address: address,
-                                                                        symbol: 'SUSHI',
-                                                                        decimals: 18,
+                                                                        symbol: 'SNOWGE',
+                                                                        decimals: 9,
                                                                         image:
-                                                                            'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0x6B3595068778DD592e39A122f4f5a5cF09C90fE2/logo.png'
+                                                                            'https://snowge.s3.amazonaws.com/SnowgeLogo.png'
                                                                     }
                                                                 }
 
@@ -292,7 +134,7 @@ function AppBar(): JSX.Element {
                                                                         .then(success => {
                                                                             if (success) {
                                                                                 console.log(
-                                                                                    'Successfully added SUSHI to MetaMask'
+                                                                                    'Successfully added SNOWGE to MetaMask'
                                                                                 )
                                                                             } else {
                                                                                 throw new Error('Something went wrong.')
@@ -303,7 +145,7 @@ function AppBar(): JSX.Element {
                                                             }}
                                                         >
                                                             <img
-                                                                src={`${process.env.PUBLIC_URL}/images/tokens/sushi-square.jpg`}
+                                                                src={`https://snowge.s3.amazonaws.com/SnowgeLogo.png`}
                                                                 alt="Switch Network"
                                                                 style={{
                                                                     minWidth: 36,
@@ -317,20 +159,6 @@ function AppBar(): JSX.Element {
                                                     </QuestionHelper>
                                                 </>
                                             )}
-                                        {chainId && chainId === ChainId.MATIC && (
-                                            <div className="hidden sm:inline-block">
-                                                <a
-                                                    className="flex items-center rounded bg-dark-900 hover:bg-dark-800 p-0.5 whitespace-nowrap text-sm font-bold cursor-pointer select-none pointer-events-auto"
-                                                    href="https://wallet.matic.network/bridge/"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                >
-                                                    <div className="grid grid-flow-col auto-cols-max items-center rounded-lg bg-dark-1000 text-sm text-secondary py-2 px-3 pointer-events-auto">
-                                                        <div className="text-primary">{i18n._(t`Bridge Assets`)}</div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        )}
                                         {library && library.provider.isMetaMask && (
                                             <div className="hidden sm:inline-block">
                                                 <Web3Network />
