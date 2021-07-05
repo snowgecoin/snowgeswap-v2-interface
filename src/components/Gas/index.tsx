@@ -41,7 +41,7 @@ function Gas() {
     if (error) return <div>{i18n._(t`failed to load`)}</div>
     if (!data) return <div>{i18n._(t`?`)}</div>
 
-    return <div>{data.standard.toFixed(1)}</div>
+    return <div>{data.standard?.toFixed(1) || Number(5).toFixed(1)}</div>
 }
 
 export default Gas
