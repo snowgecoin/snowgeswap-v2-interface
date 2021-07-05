@@ -142,7 +142,7 @@ export default function NetworkModal(): JSX.Element | null {
             </div>
 
             <div className="flex flex-col space-y-5 overflow-y-auto">
-                {[ChainId.BSC, ChainId.MATIC, ChainId.HARMONY].map((key: ChainId, i: number) => {
+                {[ChainId.BSC, ChainId.MATIC].map((key: ChainId, i: number) => {
                     if (chainId === key) {
                         return (
                             <button key={i} className="bg-gradient-to-r from-blue to-white w-full rounded p-px">

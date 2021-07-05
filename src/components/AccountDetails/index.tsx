@@ -301,7 +301,7 @@ export default function AccountDetails({
                 <CloseIcon onClick={toggleWalletModal}>
                     <CloseColor />
                 </CloseIcon>
-                <HeaderRow>Account</HeaderRow>
+                <HeaderRow>Floofer Account</HeaderRow>
                 <AccountSection>
                     <YourAccount>
                         <InfoCard>

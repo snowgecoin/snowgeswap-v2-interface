@@ -10,29 +10,39 @@ import { useLingui } from '@lingui/react'
 
 const items = (i18n: I18n) => [
     {
-        name: i18n._(t`Docs`),
-        description: i18n._(t`Documentation for users of Sushi.`),
-        href: 'https://docs.sushi.com'
+        name: i18n._(t`Home Page`),
+        description: i18n._(t`Learn more about SnowgeCoin.`),
+        href: 'https://snowgecoin.com'
     },
     {
-        name: i18n._(t`Dev`),
-        description: i18n._(t`Documentation for developers of Sushi.`),
-        href: 'https://dev.sushi.com'
+        name: i18n._(t`About Us`),
+        description: i18n._(t`Want to know how we got so floofy?`),
+        href: 'https://snowgecoin.com/about'
+    },
+    {
+        name: i18n._(t`Roadmap`),
+        description: i18n._(t`Snowge's past, present, and future.`),
+        href: 'https://snowgecoin.com/roadmap'
     },
     {
         name: i18n._(t`Open Source`),
-        description: i18n._(t`Sushi is a supporter of Open Source.`),
-        href: 'https://github.com/sushiswap'
+        description: i18n._(t`Snowge is an open-source protocol.`),
+        href: 'https://github.com/snowgecoin'
     },
     {
-        name: i18n._(t`Tools`),
-        description: i18n._(t`Tools to optimize your workflow.`),
-        href: '/tools'
+        name: i18n._(t`Telegram`),
+        description: i18n._(t`Come hang out in the Snowge Telegram!`),
+        href: 'https://t.me/snowgecoin'
     },
     {
         name: i18n._(t`Discord`),
-        description: i18n._(t`Join the community on Discord.`),
-        href: 'https://discord.gg/NVPXN4e'
+        description: i18n._(t`Join the floofs on Discord!`),
+        href: 'https://discord.gg/qy3ymqazeJ'
+    },
+    {
+        name: i18n._(t`SushiSwap`),
+        description: i18n._(t`SnowgeSwap is a proud fork of SushiSwap.`),
+        href: 'https://app.sushi.com'
     }
 ]
 
