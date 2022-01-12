@@ -27,7 +27,7 @@ export const formatToBalance = (value: string | undefined, decimals = 18) => {
 }
 
 export function isWETH(value: any): string {
-    if (value.toLowerCase() === '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2') {
+    if (value.toLowerCase() === '0x9eD72D952AA227a73e326EC0511201E6EF245eB4') {
         return 'ETH'
     }
     return value
@@ -423,7 +423,7 @@ const chains: ChainObject = {
         chainName: 'arbitrum',
         builder: builders.arbitrum
     },
-    [ChainId.MOONBEAM_TESTNET]: {
+    [ChainId.MOONBEAM]: {
         chainName: '',
         builder: builders.moonbase
     },

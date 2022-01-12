@@ -57,7 +57,7 @@ const logo: { readonly [chainId in ChainId]?: string } = {
     [ChainId.XDAI]: xDaiLogo,
     [ChainId.BSC]: BinanceCoinLogo,
     [ChainId.BSC_TESTNET]: BinanceCoinLogo,
-    [ChainId.MOONBEAM_TESTNET]: MoonbeamLogo,
+    [ChainId.MOONBEAM]: MoonbeamLogo,
     [ChainId.AVALANCHE]: AvalancheLogo,
     [ChainId.AVALANCHE_TESTNET]: AvalancheLogo,
     [ChainId.HECO]: HecoLogo,

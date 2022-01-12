@@ -21,7 +21,7 @@ function Gas() {
         [ChainId.XDAI]: 'https://rpc.xdaichain.com',
         [ChainId.BSC]: 'https://bscgas.info/gas',
         [ChainId.BSC_TESTNET]: '',
-        [ChainId.MOONBEAM_TESTNET]: 'https://rpc.testnet.moonbeam.network',
+        [ChainId.MOONBEAM]: 'https://rpc.api.moonbeam.network',
         [ChainId.AVALANCHE]: 'https://api.avax.network/ext/bc/C/rpc',
         [ChainId.AVALANCHE_TESTNET]: 'https://api.avax-test.network/ext/bc/C/rpc',
         [ChainId.HECO]: 'https://http-mainnet.hecochain.com',

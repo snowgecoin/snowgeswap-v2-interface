@@ -18,6 +18,7 @@ import {
     updateUserDeadline,
     updateUserExpertMode,
     updateUserSingleHopOnly,
+    updateSnowgeFlakes,
     updateUserSlippageTolerance
 } from './actions'
 
@@ -80,6 +81,25 @@ export function useExpertModeManager(): [boolean, () => void] {
     }, [expertMode, dispatch])
 
     return [expertMode, toggleSetExpertMode]
+}
+
+export function useSnowgeFlakes(): [boolean, (newSnowgeFlakesEnabled: boolean) => void] {
+    const dispatch = useDispatch<AppDispatch>()
+
+    const snowgeFlakes = useSelector<AppState, AppState['user']['useSnowgeFlakes']>(state => state.user.useSnowgeFlakes)
+
+    const toggleSetSnowgeFlakes = useCallback(
+        (newSnowgeFlakesEnabled: boolean) => {
+            ReactGA.event({
+                category: 'Animations',
+                action: newSnowgeFlakesEnabled ? 'enable snowgeflake animation' : 'disable snowgeflake animation'
+            })
+            dispatch(updateSnowgeFlakes({ useSnowgeFlakes: !snowgeFlakes }))
+        },
+        [snowgeFlakes, dispatch]
+    )
+
+    return [snowgeFlakes, toggleSetSnowgeFlakes]
 }
 
 export function useUserSingleHopOnly(): [boolean, (newSingleHopOnly: boolean) => void] {

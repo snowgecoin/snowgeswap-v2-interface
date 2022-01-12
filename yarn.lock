@@ -2578,9 +2578,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@snowge/swapsdk@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@snowge/swapsdk/-/swapsdk-0.0.4.tgz#e87ff40ac5c4fe7662b65bfad2b7c6a197c66437"
+"@snowge/swapsdk@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@snowge/swapsdk/-/swapsdk-0.0.5.tgz#00ebb12202522f30b094085d1a937a588b2f2df8"
+  integrity sha512-u9Ir9iB3oWpbDXOMfhnRkadh5PXLQc4gWKm3Wz8eM+dvbKkNsu5k3OWR++l3xEgN8fykW2lloyYcgXUa+1dBcg==
   dependencies:
     "@uniswap/v2-core" "^1.0.0"
     big.js "^5.2.2"

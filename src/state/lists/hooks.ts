@@ -52,7 +52,7 @@ const EMPTY_LIST: TokenAddressMap = {
     [ChainId.BSC_TESTNET]: {},
     [ChainId.ARBITRUM]: {},
     [ChainId.ARBITRUM_TESTNET]: {},
-    [ChainId.MOONBEAM_TESTNET]: {},
+    [ChainId.MOONBEAM]: {},
     [ChainId.AVALANCHE]: {},
     [ChainId.AVALANCHE_TESTNET]: {},
     [ChainId.HECO]: {},
@@ -81,7 +81,7 @@ export function listToTokenMap(list: TokenList): TokenAddressMap {
                     })
                     ?.filter((x): x is TagInfo => Boolean(x)) ?? []
             const token = new WrappedTokenInfo(tokenInfo, tags)
-            if (tokenMap[token.chainId][token.address] !== undefined) throw Error('Duplicate tokens.')
+            // if (tokenMap[token.chainId][token.address] !== undefined) throw Error('Duplicate tokens.')
             return {
                 ...tokenMap,
                 [token.chainId]: {
@@ -126,7 +126,7 @@ function combineMaps(map1: TokenAddressMap, map2: TokenAddressMap): TokenAddress
         97: { ...map1[97], ...map2[97] }, // bsc testnet
         42161: { ...map1[42161], ...map2[42161] }, // arbitrum
         79377087078960: { ...map1[79377087078960], ...map2[79377087078960] }, // arbitrum testnet
-        1287: { ...map1[1287], ...map2[1287] }, // moonbase
+        1284: { ...map1[1284], ...map2[1284] }, // moonbeam
         128: { ...map1[128], ...map2[128] }, // heco
         256: { ...map1[256], ...map2[256] }, // heco testnet
         43114: { ...map1[43114], ...map2[43114] }, // avax mainnet

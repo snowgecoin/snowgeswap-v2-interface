@@ -12,6 +12,7 @@ import {
     updateUserDeadline,
     updateUserExpertMode,
     updateUserSingleHopOnly,
+    updateSnowgeFlakes,
     updateUserSlippageTolerance
 } from './actions'
 
@@ -30,6 +31,8 @@ export interface UserState {
     userExpertMode: boolean
 
     userSingleHopOnly: boolean // only allow swaps on direct pairs
+
+    useSnowgeFlakes: boolean // show the snowgeflake animation
 
     // user defined slippage tolerance in bips, used in all txns
     userSlippageTolerance: number
@@ -63,6 +66,7 @@ export const initialState: UserState = {
     matchesDarkMode: false,
     userExpertMode: false,
     userSingleHopOnly: false,
+    useSnowgeFlakes: true,
     userSlippageTolerance: INITIAL_ALLOWED_SLIPPAGE,
     userDeadline: DEFAULT_DEADLINE_FROM_NOW,
     tokens: {},
@@ -110,6 +114,9 @@ export default createReducer(initialState, builder =>
         })
         .addCase(updateUserSingleHopOnly, (state, action) => {
             state.userSingleHopOnly = action.payload.userSingleHopOnly
+        })
+        .addCase(updateSnowgeFlakes, (state, action) => {
+            state.useSnowgeFlakes = action.payload.useSnowgeFlakes
         })
         .addCase(addSerializedToken, (state, { payload: { serializedToken } }) => {
             state.tokens[serializedToken.chainId] = state.tokens[serializedToken.chainId] || {}

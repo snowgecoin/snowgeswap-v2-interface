@@ -91,7 +91,7 @@ const WRAPPED_NATIVE_ONLY: ChainTokenList = {
     [ChainId.BSC_TESTNET]: [WETH[ChainId.BSC_TESTNET]],
     [ChainId.ARBITRUM]: [WETH[ChainId.ARBITRUM]],
     [ChainId.ARBITRUM_TESTNET]: [WETH[ChainId.ARBITRUM_TESTNET]],
-    [ChainId.MOONBEAM_TESTNET]: [WETH[ChainId.MOONBEAM_TESTNET]],
+    [ChainId.MOONBEAM]: [WETH[ChainId.MOONBEAM]],
     [ChainId.AVALANCHE]: [WETH[ChainId.AVALANCHE]],
     [ChainId.AVALANCHE_TESTNET]: [WETH[ChainId.AVALANCHE_TESTNET]],
     [ChainId.HECO]: [WETH[ChainId.HECO]],

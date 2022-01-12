@@ -10,7 +10,8 @@ import {
     useExpertModeManager,
     useUserSingleHopOnly,
     useUserSlippageTolerance,
-    useUserTransactionTTL
+    useUserTransactionTTL,
+    useSnowgeFlakes
 } from '../../state/user/hooks'
 import { TYPE } from '../../theme'
 import { ButtonError } from '../ButtonLegacy'
@@ -95,6 +96,8 @@ export default function SettingsTab() {
     const [expertMode, toggleExpertMode] = useExpertModeManager()
 
     const [singleHopOnly, setSingleHopOnly] = useUserSingleHopOnly()
+
+    const [snowgeFlakesEnabled, setSnowgeFlakesEnabled] = useSnowgeFlakes()
 
     // show confirmation view before turning on
     const [showConfirmation, setShowConfirmation] = useState(false)
@@ -207,6 +210,21 @@ export default function SettingsTab() {
                                 id="toggle-disable-multihop-button"
                                 isActive={singleHopOnly}
                                 toggle={() => (singleHopOnly ? setSingleHopOnly(false) : setSingleHopOnly(true))}
+                            />
+                        </RowBetween>
+                        <RowBetween>
+                            <RowFixed>
+                                <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
+                                    {i18n._(t`Enable SnowgeFlakes`)}
+                                </TYPE.black>
+                                <QuestionHelper text={i18n._(t`Turn off the snowgeflake animation.`)} />
+                            </RowFixed>
+                            <Toggle
+                                id="toggle-disable-multihop-button"
+                                isActive={snowgeFlakesEnabled}
+                                toggle={() =>
+                                    snowgeFlakesEnabled ? setSnowgeFlakesEnabled(false) : setSnowgeFlakesEnabled(true)
+                                }
                             />
                         </RowBetween>
                     </AutoColumn>
